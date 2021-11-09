@@ -1,40 +1,52 @@
 package tav.faeterj;
 
-public class Funcionario {
+public class Funcionario 
+	{
 	
 	public int idFuncionario;
 	public String nomeFuncionario;
-	public boolean possuiPlano;
+	public boolean planoSaude;
 	
-	public int getIdFuncionario() {
+	public int getIdFuncionario()
+	{
 		return idFuncionario;
 	}
-	public void setIdFuncionario(int idFuncionario) {
+	
+	public void setIdFuncionario(int idFuncionario) 
+	{
 		this.idFuncionario = idFuncionario;
 	}
-	public String getNomeFuncionario() {
+	
+	public String getNomeFuncionario() 
+	{
 		return nomeFuncionario;
 	}
-	public void setNomeFuncionario(String nomeFuncionario) {
+	
+	public void setNomeFuncionario(String nomeFuncionario) 
+	{
 		this.nomeFuncionario = nomeFuncionario;
 	}
-	public boolean isPossuiPlano() {
-		return possuiPlano;
-	}
-	public void setPossuiPlano(boolean possuiPlano) {
-		this.possuiPlano = possuiPlano;
+	
+	public boolean isPlanoSaude() 
+	{
+		return planoSaude;
 	}
 	
-	public String carteirinhaFuncionario (int idFuncionario, String nomeFuncionario, boolean possuiPlano) {
+	public void setPlanoSaude(boolean planoSaude) 
+	{
+		this.planoSaude = planoSaude;
+	}
+	
+	public String carteirinhaPlano (int idFuncionario, String nomeFuncionario, boolean planoSaude) {
 		int id = idFuncionario;
 		String nome = nomeFuncionario;
-		String temPlano;
+		String confirmaPlanoSaude;
 		
-		if (possuiPlano == true) {
-			temPlano = "Sim.";
+		if (planoSaude == true) {
+			confirmaPlanoSaude = "PLANO DE SAÚDE DISPONÍVEL.";
 		} else {
-			temPlano = "Não.";
+			confirmaPlanoSaude = "PLANO DE SAÚDE INDISPONÍVEL.";
 		}
-		return "ID:" + id + "\n" + "Nome:" + nome + "\n" + "Possui plano?" + temPlano;
+		return "O USUÁRIO DE ID " + id + " RECONHECIDO PELO NOME " + nome +  "SE ENCONTRA NA SEGUINTE SITUAÇÃO: " + confirmaPlanoSaude;
 	}	
 }
