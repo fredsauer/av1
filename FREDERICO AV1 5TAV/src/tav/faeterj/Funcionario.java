@@ -53,5 +53,6 @@ public class Funcionario
 		}
 		
 		return "O USUÁRIO DE ID " + id + " RECONHECIDO PELO NOME " + nome +  "SE ENCONTRA NA SEGUINTE SITUAÇÃO: " + confirmaPlanoSaude;
-		}	
+	}
+	
 	}
