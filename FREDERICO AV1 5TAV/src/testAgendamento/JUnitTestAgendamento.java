@@ -1,10 +1,8 @@
 package testAgendamento;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-
 import org.junit.jupiter.api.Test;
 
 import tav.faeterj.Agendamento;
@@ -12,101 +10,108 @@ import tav.faeterj.Funcionario;
 import tav.faeterj.Medico;
 
 
-class JUnitTestAgendamento {
-	@Test
-	void TestConsulta(){
-		//Arrange
-		Agendamento Agendar = new Agendamento();
-		String esperado = "Consulta marcada com sucesso!";
+class JUnitTestAgendamento 
+	{
+		@Test
+		void TestConsulta()
+		{
+			// ARRANGE !!!
+			
+			Agendamento Agendar = new Agendamento();
+			String esperado = "CONSULTA COM OFTALMOLOGISTA REALIZADA.";
 		
-		LocalTime hora = LocalTime.of(8,0);
-		LocalDate data = LocalDate.of(2022, 8, 5);
+			LocalTime hora = LocalTime.of(9,0);
+			LocalDate data = LocalDate.of(2021, 11, 09);
 		
-        Medico<String, String> doutor = Medico.Ortopedista();
+    			Medico<String, String> doutor = Medico.Oftalmologista();
 
 		
-		//Act
-		String resultado = Agendar.Consulta(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
+			// ACT !!!
+			String resultado = Agendar.Consulta(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
 		
-		//Assert
-		assertEquals(esperado, resultado);
-	}
+			// ASSERT !!!
+			assertEquals(esperado, resultado);
+		}
 	
-	@Test
-	void TestConsultaClinicoGeral() {
+		@Test
+		void TestConsultaCardiologista() 
+		{
 		
-		//Arrange
-		Agendamento Agendar = new Agendamento();
-		String esperado = "Consulta marcada com sucesso!";
+			// ARRANGE !!!
+			Agendamento Agendar = new Agendamento();
+			String esperado = "CONSULTA COM CARDIOLOGISTA REALIZADA.";
 		
-		LocalTime hora = LocalTime.of(8,0);
-		LocalDate data = LocalDate.of(2022, 8, 5);
+			LocalTime hora = LocalTime.of(9,0);
+			LocalDate data = LocalDate.of(2021, 11, 09);
 		
-        Medico<String, String> doutor = Medico.ClinicoGeral();
+   			Medico<String, String> doutor = Medico.Cardiologista();
 
 		
-		//Act
-		String resultado = Agendar.Consulta(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
+			// ACT !!!
+			String resultado = Agendar.Consulta(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
 		
-		//Assert
-		assertEquals(esperado, resultado);
-	}
-	@Test
-	void TestExame() {
-		//Arrange
-		Agendamento Agendar = new Agendamento();
-		String esperado = "Exame marcado com sucesso!";
+			// ASSERT !!!
+			assertEquals(esperado, resultado);
+		}
+	
+		@Test
+		void TestExame() 
+		{
+			// ARRANGE !!!
+			Agendamento Agendar = new Agendamento();
+			String esperado = "EXAME AGENDADO.";
 		
-		LocalTime hora = LocalTime.of(8,0);
-		LocalDate data = LocalDate.of(2022, 8, 5);
+			LocalTime hora = LocalTime.of(9,0);
+			LocalDate data = LocalDate.of(2021, 11, 09);
 		
-        Medico<String, String> doutor = Medico.Laboratorio();
+    			Medico<String, String> doutor = Medico.Laboratorio();
 
 		
-		//Act
-		String resultado = Agendar.Exame(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
+			// ACT !!!
+			String resultado = Agendar.Exame(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
 		
-		//Assert
-		assertEquals(esperado, resultado);
-	}
-	@Test
-	void TestInternacao() {
-		//Arrange
-		Agendamento Agendar = new Agendamento();
-		String esperado = "Internação realizada!";
+			// ASSERT !!!
+			assertEquals(esperado, resultado);
+		}
+	
+		@Test
+		void TestInternacao() 
+		{
+			// ARRANGE !!!
+			Agendamento Agendar = new Agendamento();
+			String esperado = "INTERNACAO REALIZADA.";
 				
-		LocalTime hora = LocalTime.of(8,0);
-		LocalDate data = LocalDate.of(2022, 8, 5);
+			LocalTime hora = LocalTime.of(9,0);
+			LocalDate data = LocalDate.of(2021, 11, 09);
 				
-        Medico<String, String> doutor = Medico.Internacao();
+    			Medico<String, String> doutor = Medico.Internacao();
 
 				
-		//Act
-		String resultado = Agendar.Internacao(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
+			// ACT !!!
+			String resultado = Agendar.Internacao(1, doutor.getKey(), doutor.getValue(), 1, hora, data);
 				
-		//Assert
-		assertEquals(esperado, resultado);
-	}
-	@Test
-	void TestCarteirinha() {
+			// ASSERT !!!
+			assertEquals(esperado, resultado);
+		}
+	
+		@Test
+		void TestCarteirinha() 
+		{	
+			// ARRANGE !!!
+			Funcionario Funcionario = new Funcionario();
 		
+			int id = 1;
+			String nome = "SR. OSWALDO ALVES";
+			String confirmaPlanoSaude = "DISPONÍVEL.";
 		
-		
-		//Arrange
-		Funcionario Funcionario = new Funcionario();
-		
-		int id = 1;
-		String nome = "Roberto";
-		String temPlano = "Sim.";
-		
-		String esperado = "ID:" + id + "\n" + "Nome:" + nome + "\n" + "Possui plano?" + temPlano;
+			String esperado = "O USUÁRIO DE ID:" + id + "RECONHECIDO PELO NOME " + nome + "SE ENCONTRA NA SEGUINTE SITUAÇÃO: " + confirmaPlanoSaude;
 		
 								
-		//Act
-		String resultado = Funcionario.carteirinhaFuncionario(id, nome, true);
+			// ACT !!!
+			String resultado = Funcionario.carteirinhaPlano(id, nome, true);
 		
-		//Assert
-		assertEquals(esperado,resultado);
-	}
+			// ASSERT !!!
+			assertEquals(esperado,resultado);
+		}
 
-}
+	}
