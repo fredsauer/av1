@@ -37,16 +37,21 @@ public class Funcionario
 		this.planoSaude = planoSaude;
 	}
 	
-	public String carteirinhaPlano (int idFuncionario, String nomeFuncionario, boolean planoSaude) {
+	public String carteirinhaPlano (int idFuncionario, String nomeFuncionario, boolean planoSaude) 
+	{
 		int id = idFuncionario;
 		String nome = nomeFuncionario;
 		String confirmaPlanoSaude;
 		
-		if (planoSaude == true) {
+		if (planoSaude == true) 
+		{
 			confirmaPlanoSaude = "PLANO DE SAÚDE DISPONÍVEL.";
-		} else {
+		} 
+		else 
+		{
 			confirmaPlanoSaude = "PLANO DE SAÚDE INDISPONÍVEL.";
 		}
+		
 		return "O USUÁRIO DE ID " + id + " RECONHECIDO PELO NOME " + nome +  "SE ENCONTRA NA SEGUINTE SITUAÇÃO: " + confirmaPlanoSaude;
-	}	
-}
+		}	
+	}
