@@ -1,36 +1,53 @@
 package tav.faeterj;
 
 
-public class Medico<T1, T2> {
-    public final T1 nome;
-    public final T2 endereco;
+public class Medico<M1, M2> 
+{
+    public final M1 nome;
+    public final M2 endereco;
 
-    public Medico(T1 first, T2 second) {
+    public Medico(M1 first, M2 second) 
+    {
         this.nome = first;
         this.endereco = second;
     }
 
-    public T1 getKey() {
+    public M1 getKey() 
+    {
         return nome;
     }
 
-    public T2 getValue() {
+    public M2 getValue() 
+    {
         return endereco;
     }
     
-    public static Medico<String, String> Ortopedista() {
-    	return new Medico <String, String>("Hudson", "Rua ABC");
+    public static Medico<String, String> Oftalmologista() 
+    {
+    	return new Medico <String, String>("DR. MARCOS CORRÊA", "RUA CARMEM MIRANDA 39, MÉIER, RJ. ");
     }
     
-    public static Medico<String, String> ClinicoGeral() {
-    	return new Medico <String, String>("Nelson", "Rua B");
+    public static Medico<String, String> Cardiologista() 
+    {
+    	return new Medico <String, String>("DR. FRANCISCO CHAGAS", "ESTRADA DO GALEÃO 24, JARDIM CARIOCA, ILHA DO GOVERNADOR, RJ.");
     }
     
-    public static Medico<String, String> Laboratorio() {
-    	return new Medico <String, String>("Laboratorio Albert Einstein", "Rua 3190");
+    public static Medico<String, String> Ginecologista() 
+    {
+    	return new Medico <String, String>("DRA. CAROLINE LANDIGRAF", "AVENIDA DAS AMÉRICAS, BARRA, RJ.");
     }
     
-    public static Medico<String, String> Internacao() {
-    	return new Medico <String, String>("Hospital Newman", "Rua do Pavão");
+    public static Medico<String, String> Fisioterapeuta() 
+    {
+    	return new Medico <String, String>("DRA. GIOVANNA PONTES", "RUA CONQUISTA 330, JARDIM GUANABARA, ILHA DO GOVERNADOR, RJ.");
     }
+    
+    public static Medico<String, String> LaboratorioDiagnostico() {
+    	return new Medico <String, String>("LABS MEDICINA DIAGNÓSTICA", "RUA CAMBAÚBA, 100, JARDIM GUANABARA, ILHA DO GOVERNADOR, RJ.");
+    }
+    
+    public static Medico<String, String> Clinica() {
+    	return new Medico <String, String>("CLINICA BEM ESTAR", "RUA UM, 7, ILHA DO GOVERNADOR, CACUIA, ILHA DO GOVERNADOR, RJ.");
+    }
+    
 }
